@@ -73,6 +73,10 @@
             <x-nav-link href="{{ route('groups.index') }}" :active="request()->routeIs('groups.index')">
                 Groups
             </x-nav-link>
+            <x-nav-link href="{{ route('reading-plan.index') }}" :active="request()->routeIs('reading-plan.index')">
+                Reading Plan
+            </x-nav-link>
+
         </div>
 
         <!-- Responsive Settings Options -->

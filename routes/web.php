@@ -18,6 +18,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/groups', [GroupsController::class, 'index'])->name('groups.index');
+
+    Route::get('/reading-plan', [ReadingPlanController::class, 'index'])->name('reading-plan.index');
 });
 
 require __DIR__.'/auth.php';
