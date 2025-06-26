@@ -1,11 +1,11 @@
 <x-app-layout>
-    <div class="max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Your Groups</h1>
+    <div class="section">
+        <h1 class="page-title">Your Groups</h1>
 
         @if(count($groups))
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach($groups as $group)
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-5">
+                    <div class="card">
                         <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">
                             {{ $group['name'] }}
                         </h2>
