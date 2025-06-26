@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\GroupsController;
+use App\Http\Controllers\User\ReadingPlanController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
