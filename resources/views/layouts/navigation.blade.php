@@ -76,7 +76,24 @@
             <x-nav-link href="{{ route('reading-plan.index') }}" :active="request()->routeIs('reading-plan.index')">
                 Reading Plan
             </x-nav-link>
-
+            <x-nav-link href="{{ route('journals.index') }}" :active="request()->routeIs('journals.*')">
+                Journals
+            </x-nav-link>
+            <x-nav-link href="{{ route('book-assignments.index') }}" :active="request()->routeIs('book-assignments.*')">
+                Book Assignments
+            </x-nav-link>
+            <x-nav-link href="{{ route('activity.index') }}" :active="request()->routeIs('activity.index')">
+                Activity Feed
+            </x-nav-link>
+            <x-nav-link href="{{ route('settings.index') }}" :active="request()->routeIs('settings.index')">
+                Settings
+            </x-nav-link>
+            <x-nav-link href="{{ route('getting-started') }}" :active="request()->routeIs('getting-started')">
+                Getting Started
+            </x-nav-link>
+            <x-nav-link href="{{ route('terms') }}" :active="request()->routeIs('terms')">
+                Terms of Use
+            </x-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

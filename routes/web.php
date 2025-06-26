@@ -3,6 +3,11 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\GroupsController;
 use App\Http\Controllers\User\ReadingPlanController;
+use App\Http\Controllers\User\JournalController;
+use App\Http\Controllers\User\BookAssignmentController;
+use App\Http\Controllers\User\ActivityFeedController;
+use App\Http\Controllers\User\SettingsController;
+use App\Http\Controllers\User\StaticPageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,6 +26,22 @@ Route::middleware('auth')->group(function () {
     Route::get('/groups', [GroupsController::class, 'index'])->name('groups.index');
 
     Route::get('/reading-plan', [ReadingPlanController::class, 'index'])->name('reading-plan.index');
+
+    Route::get('/journals', [JournalController::class, 'index'])->name('journals.index');
+    Route::get('/journals/create', [JournalController::class, 'create'])->name('journals.create');
+    Route::post('/journals', [JournalController::class, 'store'])->name('journals.store');
+
+    Route::get('/book-assignments', [BookAssignmentController::class, 'index'])->name('book-assignments.index');
+    Route::get('/book-assignments/{id}', [BookAssignmentController::class, 'show'])->name('book-assignments.show');
+    Route::post('/book-assignments', [BookAssignmentController::class, 'store'])->name('book-assignments.store');
+
+    Route::get('/activity', [ActivityFeedController::class, 'index'])->name('activity.index');
+
+    Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
+    Route::post('/settings', [SettingsController::class, 'update'])->name('settings.update');
+
+    Route::get('/getting-started', [StaticPageController::class, 'gettingStarted'])->name('getting-started');
+    Route::get('/terms-of-use', [StaticPageController::class, 'terms'])->name('terms');
 });
 
 require __DIR__.'/auth.php';
