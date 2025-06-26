@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\GroupsController;
 use App\Http\Controllers\User\ReadingPlanController;
 use App\Http\Controllers\User\JournalController;
 use App\Http\Controllers\User\BookAssignmentController;
+use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\ActivityFeedController;
 use App\Http\Controllers\User\SettingsController;
 use App\Http\Controllers\User\StaticPageController;

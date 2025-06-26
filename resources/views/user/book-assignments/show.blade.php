@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="max-w-3xl mx-auto py-8 px-4">
+    <div class="max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">{{ $assignment['title'] }}</h1>
 
         <form action="{{ route('book-assignments.store') }}" method="POST">
@@ -7,11 +7,11 @@
 
             @foreach($assignment['questions'] as $index => $question)
                 <div class="mb-6">
-                    <label class="block font-medium text-gray-700 dark:text-gray-200">
+                    <label class="block font-medium text-gray-700 dark:text-gray-200 mb-2">
                         {{ $question }}
                     </label>
                     <textarea name="responses[{{ $index }}]" rows="4"
-                              class="mt-2 block w-full rounded-md border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                              class="block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm"
                               required></textarea>
                 </div>
             @endforeach
