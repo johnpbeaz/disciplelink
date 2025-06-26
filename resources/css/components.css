@@ -1,31 +1,31 @@
 @layer components {
-  /* Buttons */
-  .btn-primary {
-    @apply bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition;
-  }
+/* Buttons */
+.btn-primary {
+  @apply bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition;
+}
 
-  /* Card container */
-  .card {
-    @apply bg-white dark:bg-gray-800 rounded-lg shadow p-6;
-  }
+/* Card container */
+.card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow p-6;
+}
 
-  /* Page title (usually H1) */
-  .page-title {
-    @apply text-2xl font-bold text-gray-900 dark:text-white mb-6;
-  }
+/* Page title (usually H1) */
+.page-title {
+  @apply text-2xl font-bold text-gray-900 dark:text-white mb-6;
+}
 
-  /* Section wrapper */
-  .section {
-    @apply max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8;
-  }
+/* Section wrapper */
+.section {
+  @apply max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8;
+}
 
-  /* Form labels */
-  .form-label {
-    @apply block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1;
-  }
+/* Form labels */
+.form-label {
+  @apply block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1;
+}
 
-  /* Text input, textarea, file input */
-  .form-input {
-    @apply w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm;
-  }
+/* Text input, textarea, file input */
+.form-input {
+  @apply w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm;
+}
 }
