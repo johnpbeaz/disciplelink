@@ -14,7 +14,7 @@
 
         <div>
             <h2 class="text-xl font-semibold">Leader</h2>
-            <p>{{ $group->leader->name ?? '—' }}</p>
+            <p>{{ $group->leader?->name ?? '—' }}</p>
         </div>
 
         <div class="pt-4">
