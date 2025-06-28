@@ -13,6 +13,7 @@ use App\Http\Controllers\User\StaticPageController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\CommunityController;
 use App\Http\Controllers\Admin\GroupController;
+use App\Http\Controllers\Admin\MemberController;
 use App\Http\Middleware\IsAdmin;
 
 Route::get('/', function () {
