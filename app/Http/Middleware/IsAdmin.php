@@ -8,12 +8,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 class IsAdmin
 {
-    public function handle(Request $request, Closure $next): Response
+    public function handle($request, Closure $next)
     {
-        if (!auth()->check() || !$request->user()->is_admin) {
-            abort(403, 'Unauthorized');
+        $user = $request->user();
+
+        if (!$user || !$user->roles || !$user->roles->contains('name', 'super_admin')) {
+            abort(403, 'Unauthorized.');
         }
 
         return $next($request);
     }
+
 }

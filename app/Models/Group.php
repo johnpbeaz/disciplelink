@@ -13,4 +13,10 @@ class Group extends Model
     {
         return $this->belongsTo(Community::class);
     }
+
+    public function members()
+    {
+        return $this->hasMany(Member::class);
+    }
+
 }
