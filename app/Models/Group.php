@@ -10,7 +10,6 @@ class Group extends Model
 {
     protected $fillable = ['community_id', 'name', 'description', 'leader_id'];
 
-
     public function community()
     {
         return $this->belongsTo(Community::class);
