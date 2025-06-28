@@ -8,7 +8,7 @@ use App\Models\Community;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class GroupsController extends Controller
+class GroupController extends Controller
 {
     public function index()
     {
