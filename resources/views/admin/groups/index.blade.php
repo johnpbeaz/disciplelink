@@ -24,7 +24,7 @@
                         <tr class="border-t">
                             <td class="px-6 py-4">{{ $group->name }}</td>
                             <td class="px-6 py-4">{{ $group->community->name ?? '—' }}</td>
-                            <td class="px-6 py-4">{{ $group->leader->name ?? '—' }}</td>
+                            <td class="px-6 py-4">{{ $group->leader?->name ?? '—' }}</td>
                             <td class="px-6 py-4 text-right space-x-2">
                                 <a href="{{ route('admin.groups.edit', $group) }}" class="text-blue-600 hover:underline">Edit</a>
                                 <form action="{{ route('admin.groups.destroy', $group) }}" method="POST" class="inline">
