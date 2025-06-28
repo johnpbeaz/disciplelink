@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Community;
+use App\Models\User;
 
 class Group extends Model
 {
-    protected $fillable = ['community_id', 'name', 'description'];
+    protected $fillable = ['community_id', 'name', 'description', 'leader_id'];
+
 
     public function community()
     {
@@ -17,6 +19,11 @@ class Group extends Model
     public function members()
     {
         return $this->hasMany(Member::class);
+    }
+    
+    public function leader()
+    {
+        return $this->belongsTo(User::class, 'leader_id');
     }
 
 }
