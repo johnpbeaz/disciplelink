@@ -14,7 +14,7 @@
         <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 rounded hover:bg-[#7e1a20]">Dashboard</a>
         <a href="{{ route('admin.communities.index') }}" class="block px-4 py-2 rounded hover:bg-[#7e1a20]">Communities</a>
         <a href="{{ route('admin.groups.index') }}" class="block px-4 py-2 rounded hover:bg-[#7e1a20]">Groups</a>
-        <a href="{{ route('admin.users.index') }}" class="block px-4 py-2 rounded hover:bg-[#7e1a20]">Users</a>
+        <a href="{{ route('admin.members.index') }}" class="block px-4 py-2 rounded hover:bg-[#7e1a20]">Members</a>
       </nav>
     </aside>
 
