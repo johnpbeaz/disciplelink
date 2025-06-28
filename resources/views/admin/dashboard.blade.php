@@ -10,6 +10,13 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     Welcome to the Admin Dashboard. Here you can manage users, content, and settings.
+                    @auth
+                        @if(auth()->user()->hasRole('super_admin'))
+                            <div class="bg-white p-6 shadow rounded">
+                                <p>You are a Super Admin. 🎉</p>
+                            </div>
+                        @endif
+                    @endauth
                 </div>
             </div>
         </div>

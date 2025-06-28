@@ -39,6 +39,13 @@
                     <x-nav-link href="{{ route('terms') }}" :active="request()->routeIs('terms')">
                         Terms of Use
                     </x-nav-link>
+                    @auth
+                        @if(auth()->user()->hasRole('super_admin'))
+                            <x-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
+                                Admin Dashboard
+                            </x-nav-link>
+                        @endif
+                    @endauth
                 </div>
             </div>
 

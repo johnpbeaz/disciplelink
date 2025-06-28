@@ -12,6 +12,7 @@ use App\Http\Controllers\User\SettingsController;
 use App\Http\Controllers\User\StaticPageController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\CommunityController;
+use App\Http\Controllers\Admin\GroupController;
 use App\Http\Middleware\IsAdmin;
 
 Route::get('/', function () {
@@ -57,6 +58,9 @@ Route::middleware(['auth', IsAdmin::class])->prefix('admin')->name('admin.')->gr
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     
     Route::resource('communities', CommunityController::class)->except(['show']);
+
+    Route::resource('admin/groups', GroupController::class)->names('admin.groups');
+
 });
 
 require __DIR__ . '/auth.php';
