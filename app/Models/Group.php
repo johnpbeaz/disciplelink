@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Community;
-use App\Models\User;
 use App\Models\Member;
 
 class Group extends Model
@@ -23,6 +22,6 @@ class Group extends Model
 
     public function leader()
     {
-        return $this->belongsTo(User::class, 'group_leader_id');
+        return $this->belongsTo(Member::class, 'group_leader_id');
     }
 }

@@ -24,7 +24,7 @@
                 <select name="group_leader_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
                     <option value="">-- None --</option>
                     @foreach ($groupLeaders as $leader)
-                        <option value="{{ $leader->id }}">{{ $leader->name }}</option>
+                        <option value="{{ $leader->id }}">{{ $leader->name }} ({{ $leader->email }})</option>
                     @endforeach
                 </select>
             </div>

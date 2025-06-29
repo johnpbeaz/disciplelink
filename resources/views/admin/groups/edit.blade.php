@@ -28,11 +28,12 @@
                     <option value="">-- None --</option>
                     @foreach ($groupLeaders as $leader)
                         <option value="{{ $leader->id }}" @selected($group->group_leader_id == $leader->id)>
-                            {{ $leader->name }}
+                            {{ $leader->name }} ({{ $leader->email }})
                         </option>
                     @endforeach
                 </select>
             </div>
+
 
             <div class="flex justify-end">
                 <button type="submit" class="px-6 py-2 bg-red-700 text-white rounded hover:bg-red-800">
