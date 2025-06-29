@@ -22,6 +22,7 @@
                     <tr class="bg-gray-100">
                         <th class="p-4">Name</th>
                         <th class="p-4">Description</th>
+                        <th class="p-4">Leader(s)</th>
                         <th class="p-4">Actions</th>
                     </tr>
                 </thead>
@@ -30,6 +31,13 @@
                         <tr class="border-b">
                             <td class="p-4">{{ $community->name }}</td>
                             <td class="p-4">{{ $community->description }}</td>
+                            <td class="p-4">
+                                @if ($community->leaders->isNotEmpty())
+                                    {{ $community->leaders->pluck('name')->join(', ') }}
+                                @else
+                                    <em>No leaders assigned</em>
+                                @endif
+                            </td>
                             <td class="p-4 space-x-2">
                                 <a href="{{ route('admin.communities.edit', $community) }}"
                                    class="text-blue-600 hover:underline">Edit</a>
