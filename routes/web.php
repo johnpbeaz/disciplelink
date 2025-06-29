@@ -15,6 +15,8 @@ use App\Http\Controllers\Admin\CommunityController;
 use App\Http\Controllers\Admin\GroupController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Middleware\IsAdmin;
+use App\Http\Controllers\Leader\GroupLeaderController;
+use App\Http\Controllers\Leader\GroupMemberController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -57,13 +59,15 @@ Route::middleware('auth')->group(function () {
 // Admin Routes
 Route::middleware(['auth', IsAdmin::class])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
-    
     Route::resource('communities', CommunityController::class)->except(['show']);
-
     Route::resource('groups', GroupController::class);
-
     Route::resource('members', MemberController::class);
+});
 
+// Group Leader Routes
+Route::middleware(['auth', 'group_leader'])->prefix('leader')->name('leader.')->group(function () {
+    Route::resource('groups', GroupLeaderController::class)->except(['index', 'show']);
+    Route::resource('members', GroupMemberController::class)->except(['show']);
 });
 
 require __DIR__ . '/auth.php';

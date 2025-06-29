@@ -19,8 +19,11 @@ class GroupController extends Controller
     public function create()
     {
         $communities = Community::orderBy('name')->get();
-        $leaders = User::orderBy('name')->get(); // You might want to filter to leaders only
-        return view('admin.groups.create', compact('communities', 'leaders'));
+        $groupLeaders = User::whereHas('roles', function ($query) {
+            $query->where('name', 'group_leader');
+        })->orderBy('name')->get();
+
+        return view('admin.groups.create', compact('communities', 'groupLeaders'));
     }
 
     public function store(Request $request)
@@ -28,10 +31,10 @@ class GroupController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'community_id' => 'nullable|exists:communities,id',
-            'leader_id' => 'nullable|exists:users,id',
+            'group_leader_id' => 'nullable|exists:users,id',
         ]);
 
-        Group::create($request->only(['name', 'community_id', 'leader_id']));
+        Group::create($request->only(['name', 'community_id', 'group_leader_id']));
 
         return redirect()->route('admin.groups.index')->with('success', 'Group created successfully.');
     }
@@ -39,8 +42,11 @@ class GroupController extends Controller
     public function edit(Group $group)
     {
         $communities = Community::orderBy('name')->get();
-        $leaders = User::orderBy('name')->get(); // Optionally filter
-        return view('admin.groups.edit', compact('group', 'communities', 'leaders'));
+        $groupLeaders = User::whereHas('roles', function ($query) {
+            $query->where('name', 'group_leader');
+        })->orderBy('name')->get();
+
+        return view('admin.groups.edit', compact('group', 'communities', 'groupLeaders'));
     }
 
     public function update(Request $request, Group $group)
@@ -48,10 +54,10 @@ class GroupController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'community_id' => 'nullable|exists:communities,id',
-            'leader_id' => 'nullable|exists:users,id',
+            'group_leader_id' => 'nullable|exists:users,id',
         ]);
 
-        $group->update($request->only(['name', 'community_id', 'leader_id']));
+        $group->update($request->only(['name', 'community_id', 'group_leader_id']));
 
         return redirect()->route('admin.groups.index')->with('success', 'Group updated successfully.');
     }

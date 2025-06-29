@@ -23,10 +23,11 @@
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-gray-700">Leader</label>
-                <select name="leader_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                    @foreach ($leaders as $leader)
-                        <option value="{{ $leader->id }}" @selected($group->leader_id == $leader->id)>
+                <label class="block text-sm font-medium text-gray-700">Group Leader</label>
+                <select name="group_leader_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                    <option value="">-- None --</option>
+                    @foreach ($groupLeaders as $leader)
+                        <option value="{{ $leader->id }}" @selected($group->group_leader_id == $leader->id)>
                             {{ $leader->name }}
                         </option>
                     @endforeach
