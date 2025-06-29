@@ -60,9 +60,9 @@ Route::middleware(['auth', IsAdmin::class])->prefix('admin')->name('admin.')->gr
     
     Route::resource('communities', CommunityController::class)->except(['show']);
 
-    Route::resource('groups', GroupController::class)->names('admin.groups');
+    Route::resource('groups', GroupController::class);
 
-    Route::resource('members', MemberController::class)->names('admin.members');
+    Route::resource('members', MemberController::class);
 
 });
 
