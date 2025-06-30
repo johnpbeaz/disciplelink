@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
+use App\Models\Member;
 
 class Community extends Model
 {
@@ -14,7 +14,7 @@ class Community extends Model
      */
     public function leaders()
     {
-        return $this->belongsToMany(User::class, 'community_user', 'community_id', 'user_id')
+        return $this->belongsToMany(Member::class, 'community_user', 'community_id', 'member_id')
             ->whereHas('roles', function ($query) {
                 $query->where('name', 'community_leader');
             });

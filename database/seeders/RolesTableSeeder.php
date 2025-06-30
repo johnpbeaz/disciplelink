@@ -2,22 +2,23 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Seeder;
 use App\Models\Role;
-use App\Models\User;
+use App\Models\Member;
 
-public function run(): void
+class RolesTableSeeder extends Seeder
 {
-    $roles = ['super_admin', 'admin', 'group_leader'];
+    public function run(): void
+    {
+        $roles = ['super_admin', 'admin', 'group_leader'];
 
-    foreach ($roles as $roleName) {
-        Role::firstOrCreate(['name' => $roleName]);
+        foreach ($roles as $roleName) {
+            Role::firstOrCreate(['name' => $roleName]);
     }
 
-    $user = User::where('email', 'johnpbeaz@gmail.com')->first();
-
-    if ($user) {
-        $user->roles()->sync(Role::whereIn('name', ['super_admin', 'admin'])->pluck('id'));
+    $user = Member::where('email', 'johnpbeaz@gmail.com')->first();
+    
+        if ($user) {
+            $user->roles()->sync(Role::whereIn('name', ['super_admin', 'admin'])->pluck('id'));
+        }
     }
-}
-
-$this->call(RolesTableSeeder::class);

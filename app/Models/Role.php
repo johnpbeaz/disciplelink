@@ -9,8 +9,8 @@ class Role extends Model
 {
     protected $fillable = ['name'];
 
-    public function users(): BelongsToMany
+    public function members(): BelongsToMany
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(Member::class);
     }
 }
