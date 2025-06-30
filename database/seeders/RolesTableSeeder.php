@@ -22,3 +22,4 @@ class RolesTableSeeder extends Seeder
             $user->roles()->sync(Role::whereIn('name', ['super_admin', 'admin'])->pluck('id'));
         }
     }
+}
